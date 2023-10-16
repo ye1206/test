@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+#main {
+width: 900px;
+margin: 0px auto;
+line-height: 28pt;
+font-size: 16pt;
+}
+legend {
+font-weight: bold;
+color: red;
+}
+select, button {
+vertical-align:middle;
+font-size: 14pt;
+font-family: times new roman;
+}
+input[type=submit],input[type=reset],input[type=button],input[type=image],button {
+font-family: times new roman;
+font-size:14pt;
+vertical-align:middle;
+}
+h2 {
+text-align:center;
+color:darkgreen;
+}
+</style>
+<title>表單</title>
+</head>
+<body>
+<div id="main">
+<h2>HTML5 Form Elements</h2>
+<form action="http://ycchen.im.ncnu.edu.tw/join.php" method="post">
+
+<hr />
+User Name: <input type="text" id="uid" name="uid" size="10" maxlength="20" /><br/>
+Password:
+<input type="password" id="pwd" name="pwd" size="12" maxlength="20" /><br/>
+Comments: <br/><textarea  id="cmts" name="cmts" cols="40" rows="5"></textarea> <br/>
+Members: <input type="checkbox" id="yahoo" name="yahoo" value="yahoo" /> Yahoo!
+<input type="checkbox" id="google" name="google" value="google" /> Google
+<input type="checkbox" id="youtube" name="youtube" value="youtube" /> Youtube<br/>
+Payment:
+<input type="radio" id="pay" name="pay" value="Visa"  /> Visa
+<input type="radio" id="pay" name="pay" value="Master" /> Master
+<input type="radio" id="pay" name="pay" value="JCB" /> JCB <br/>
+Month: <select name="month">
+<option>Jan.</option>
+<option>Feb.</option>
+<option>Mar.</option>
+<option>Apr.</option>
+</select><br/>
+<hr />
+Datalist: <input name="browser"> <br/>
+<datalist id="browList">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist> 
+E-mail: <input name="email"> <br/>
+Number/step: <input name="points" > <br/>
+Date: <input  name="dte" /><br/>
+Color: <input name="clr" value="#00ffff" /> <br/>
+<hr />
+<input type="submit" /> <input type="reset" />
+</form>
+</div>
+</body>
+</html>
