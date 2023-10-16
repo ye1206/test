@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>event</title>
+<style type="text/css">
+.mark {
+position: absolute;
+}
+
+</style>
+<script type="text/javascript">
+window.onload = function() {
+document.getElementById("ncnu").onclick = putMark;
+}
+function putMark(e) {
+ var img = document.createElement("img");
+ img.src = "mark.png";
+ img.classList.add("mark");
+ img.style.top=(e.clientY-48)+"px";
+ img.style.left=(e.clientX-24)+"px";
+ var map = document.getElementById("map");
+ map.appendChild(img);
+}
+</script> 
+</head>
+<body>
+<div id="map">
+<img id="ncnu" src="ncnu.png" alt="ncnu" /></div>
+</body>
+</html>

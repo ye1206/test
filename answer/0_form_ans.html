@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>form check</title>
+<style type="text/css">
+body {width: 600px; margin:10px auto}
+#content {color:ivory; background-color:DarkOliveGreen; border:2px solid #ccc; padding:20px}
+table {margin: 10px auto; border: 1px solid #ccc; width:400px;}
+td {text-align:right; padding:5px 10px}
+td+td {text-align: left}
+</style>
+<script type="text/javascript" src="twCity.js"></script>
+<script type="text/javascript">
+window.onload=function() {
+cityInit();
+showTown();
+document.getElementById("f1").onsubmit=join;
+document.getElementById("f1").onreset=init;
+document.getElementById("city").onchange=showTown;
+init();
+};
+function init() {
+   cityInit();
+   showTown();
+}
+function cityInit() {
+var cityEle=document.getElementById("city");
+for (let city in cityArr) {
+    var opt=new Option();
+	opt.text=city;
+	cityEle.add(opt);
+}
+cityEle.selectedIndex=0;
+}
+function showTown() {
+  var townEle=document.getElementById("town");
+  var cityEle=document.getElementById("city");
+  //var area=areaEle.options[areaEle.selectedIndex].text;
+  var city=cityEle.value;
+  clearTown();
+  for (var i=0;i<cityArr[city].length;i++) {
+	    var opt=new Option();
+		opt.text=cityArr[city][i];
+		townEle.add(opt);
+  }
+}
+
+function clearTown() {
+  var townEle=document.getElementById("town");
+  var noOp=townEle.options.length
+  for (var i=0;i<noOp;i++) {
+     townEle.remove(0);
+  }
+}
+function join() {
+  var email= document.getElementById("email");
+  if (email.value.indexOf("@")==-1) {
+     alert("Wrong e-mail!");
+	 email.focus();
+	 return false;
+  }
+  var pw1= document.getElementById("pwd1").value;
+  var pw2= document.getElementById("pwd2").value;
+  if (pw1.length<6) {
+     alert("password too short!");
+	 document.getElementById("pwd").focus();
+	 return false;
+  }
+  if (pw1 != pw2) {
+     alert("password inconsistent!");
+	 document.getElementById("pwd").focus();
+	 return false;
+  }
+  var age = document.f1.age.value;
+  if (age=="" || isNaN(age)) {
+     alert("wrong age!");
+	 document.f1.age.focus();
+	 return false;
+  }
+}
+</script>
+</head>
+<body>
+<div id="content">
+<form id="f1" name="f1" method="post" action="https://ycchen.im.ncnu.edu.tw/join.php">
+<table>
+<tr><td>E-mail:</td><td><input type="text" id="email" name="email" /></td></tr>
+<tr><td>密碼:</td><td><input type="password" id="pwd1" name="pwd" /></td></tr>
+<tr><td>密碼確認:</td><td><input type="password" id="pwd2" /></td></tr>
+<tr><td>年齡:</td><td><input type="text" name="age" size="4" /></td></tr>
+<tr><td>服務據點:</td><td>
+城市: <select id="city" name="city"></select>
+鄉鎮(區): <select id="town" name="town"></select></td></tr>
+<tr><td colspan="2" style="text-align:center"><input type="submit" /> <input type="reset" /></td></tr>
+</table>
+</form>
+</div>
+</body>
+</html>
