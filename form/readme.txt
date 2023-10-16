@@ -23,4 +23,6 @@
   (2). 將span之display屬性設為inline-block
   (3). 設定span之寬度(width)及文字對齊(text-align)屬性
 
+嘻嘻哈哈
+
   
